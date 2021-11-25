@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>About Us</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+
+        body {
+            background-color: cadetblue;
+            font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        
+        h1 {
+
+            font-family: 'Merriweather', Arial, Helvetica, sans-serif, ;
+
+        }
+
+        div.arroz {
+
+            width: 375px;
+            display:inline-block
+        }
+
+        .multicolortext {
+            background-image: linear-gradient(to right, violet, indigo, green, blue, yellow, orange, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+    </style>
+
+    
+</head>
+<body>
+
+    <ul id="menu-hor">
+        <a href="{% url 'home' %}"><li style="font-size: 50px"><span class="multicolortext">S N E A K E R H E A D</span></li></a>
+        <li><a href="{% url 'aboutus' %}">Quem Somos</a></li>
+        <li>Contato</li>
+    </ul>
+
+    <h1>Quem somos nós</h1>
+    <hr> 
+    <p>A Sneakerhead é um e-commerce em expansão no ramo de tênis esportivos, satisfazendo clientes em todas as partes do Brasil temos esperança de que um dia nos tornarmos líderes de mercado global.</p> 
+    <h2>Composição do time</h2>
+
+    <div class='arroz'> 
+    <p>Tiago Takeda</p> 
+    <a href="https://www.linkedin.com/in/tiago-takeda-6553b787/" target="_blank" rel="external"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQGCjpnnb-C4ug/profile-displayphoto-shrink_200_200/0/1615901883574?e=1635379200&v=beta&t=5VMSaxOHrxllnZuPR4MbsfKH_8x3l0o2xldCatgBJ20" alt="Tiago Takeda"></a>
+    </div>
+    
+    <div class='arroz'> 
+    <p>Pedro Nunes</p>
+    <a href="https://www.linkedin.com/in/pedro-henrique-n-8706a21a2/" target="_blank"  rel="external"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQHm1Yw_QxxlHQ/profile-displayphoto-shrink_200_200/0/1631133323742?e=1640217600&v=beta&t=Fdhe-fa02GF8AQNcCXzgug9D2iRhwl62bKs4bstVet4" alt="Pedro nunes"></a>
+    </div>
+   
+    <div class='arroz'>   
+    <p>Davi Praxedes</p>
+   <a href="https://www.linkedin.com/in/davi-praxedes-santos-silva-00b6a51a2/" target="_blank"  rel="external"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQEHOZMbM4i3dw/profile-displayphoto-shrink_200_200/0/1607032741931?e=1640217600&v=beta&t=ekEBbykWJGMJ3SYr-snFfY9rlP7vHKVzvc92EjqGyK4" alt=""></a>
+   </div>
+</body>
+</html>

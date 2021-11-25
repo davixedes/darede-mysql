@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@500&display=swap');
+
+body{
+    background-color: rgba(191, 191, 191, 0.5);
+    font-family: 'Yaldevi';
+}
+
+img{
+    width: 10cm;
+    height: 10cm;
+}

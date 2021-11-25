@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Home</title>
+    <style>
+        .multicolortext {
+            background-image: linear-gradient(to right, violet, indigo, green, blue, yellow, orange, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- center><h1><span class="multicolortext">S N E A K E R H E A D</span></h1></center -->
+
+    <ul id="menu-hor">
+        <a href="{% url 'home' %}"><li style="font-size: 50px"><span class="multicolortext">S N E A K E R H E A D</span></li></a>
+        <li><a href="{% url 'aboutus' %}">Quem Somos</a></li>
+        <li>Contato</li>
+        <li><a href="{% url 'register_user' %}">Cadastrar</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+    </ul>
+
+    <br> 
+    <center><h2>Produtos</h2></center>
+    <br>
+
+    
+
+    <ul>
+    {% for product in products %}
+        <h4><a href="{% url 'product' product.id %}">
+            {{ product }}
+        </a></h4>
+        
+        <a href="{% url 'product' product.id %}">
+            <div class="col-md-4">
+                <img src="{{ product.image.url }}"/>
+            </div>
+        </a>
+
+        <br>
+            Preço: R$ {{ product.price }}<br>
+            Tamanho: {{ product.size }}<br>
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@500&display=swap');
+
+body{
+    background-color: rgba(191, 191, 191, 0.5);
+    font-family: 'Yaldevi';
+}
+
+img{
+    width: 10cm;
+    height: 10cm;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+#menu-hor{
+    list-style-type: none;
+    padding: 0;
+    background-color: rgb(41, 39, 39);
+}
+
+#menu-hor li{
+    color: rgb(255, 255, 255);
+    padding: 50px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    display: inline;
+}
+
+#menu-hor a{
+    color: rgb(255, 255, 255);
+}

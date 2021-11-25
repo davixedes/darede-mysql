@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+    <style>
+        .multicolortext {
+            background-image: linear-gradient(to right, violet, indigo, green, blue, yellow, orange, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu-hor">
+        <a href="{% url 'home' %}"><li style="font-size: 50px"><span class="multicolortext">S N E A K E R H E A D</span></li></a>
+        <li><a href="{% url 'aboutus' %}">Quem Somos</a></li>
+        <li>Contato</li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li style="font-size: 15px;">| Olá, {{ user.username }}</li>
+    </ul>
+    
+    <center><h1>CONFIRMAÇÃO DE PAGAMENTO</h1></center>
+    <center>
+        <h1>{{ product_name }}</h1>
+        <div class="col-md-4">
+            <img src="{{ product.image.url }}" alt="{{ product }}" />
+        </div>
+    </center>
+    <br><br>
+    <b>Preço:</b> R$ {{ product.price }}<br>
+    <b>Tamanho:</b> {{ product.size }}<br>
+
+    <b>ORDER_ID:</b> {{ demand.id }}<br>
+    <b>Data da compra:</b> {{ demand.date }}<br>
+
+    <center><a href="{% url 'delivery' product.id demand_id %}" style="font-size: 30px;">Confirmar</a></center>
+    
+</body>
+</html>

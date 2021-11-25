@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+    - echo Logginng in to Amazon ECR   
+    - aws --version  
+    - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 504646716418.dkr.ecr.us-east-1.amazonaws.com
+    - REPOSITORY_URI=504646716418.dkr.ecr.us-east-1.amazonaws.com/live1
+    - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+    - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
+    - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+  build:
+    commands:
+      - docker build -t sneakerhead .
+      - echo Build started on `date`
+      - docker build -t live1 .
+      - docker tag sneakerhead:latest 504646716418.dkr.ecr.us-east-1.amazonaws.com/sneakerhead:latest
+  post_build:
+    commands:
+      - echo Pushing the Docker images...
+      - docker push 504646716418.dkr.ecr.us-east-1.amazonaws.com/sneakerhead:latest
+      - echo Writing image definition file...
+      - printf '[{"mame":"app", "imageuri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinition.json
+      - echo Build completed on `date`

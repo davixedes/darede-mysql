@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+    <style>
+        .multicolortext {
+            background-image: linear-gradient(to right, violet, indigo, green, blue, yellow, orange, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu-hor">
+        <a href="{% url 'home' %}"><li style="font-size: 50px"><span class="multicolortext">S N E A K E R H E A D</span></li></a>
+        <li><a href="{% url 'aboutus' %}">Quem Somos</a></li>
+        <li>Contato</li>
+    </ul>
+    
+    <center><h1>LOGIN</h1></center>
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+        
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+            <a href="{% url 'home' %}">Voltar</a>
+        </form>
+    </center>
+</body>
+</html>
