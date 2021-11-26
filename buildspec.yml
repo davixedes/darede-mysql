@@ -12,10 +12,10 @@ phases:
     - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
   build:
     commands:
-      - docker build -t sneakerhead .
+      - docker build -t sneakerheadmysql .
       - echo Build started on `date`
       - docker build -t live1 .
-      - docker tag sneakerhead:latest 504646716418.dkr.ecr.us-east-1.amazonaws.com/sneakerhead:latest
+      - docker tag sneakerheadmysql:latest 504646716418.dkr.ecr.us-east-1.amazonaws.com/sneakerheadmysql:latest
   post_build:
     commands:
       - echo Pushing the Docker images...
